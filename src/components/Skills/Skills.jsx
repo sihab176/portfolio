@@ -98,65 +98,66 @@ import {
   SiFigma,
 } from "react-icons/si";
 import { IoLogoJavascript } from "react-icons/io5";
+import { RiFirebaseFill } from "react-icons/ri";
 const Skills = () => {
   const skillCategories = [
     {
       name: "React",
       level: 95,
       icon: <FaReact color="#61DAFB" />,
-      color: "blue",
+      color: "bg-blue-600",
     },
     {
       name: "Javascript",
       level: 95,
       icon: <IoLogoJavascript color="#ffb703" />,
-      color: "yellow",
+      color: "bg-yellow-400",
     },
 
     {
       name: "Next.js",
       level: 84,
       icon: <SiNextdotjs color="#000000" />,
-      color: "gray",
+      color: "bg-gray-500",
     },
     {
       name: "Tailwind CSS",
       level: 92,
       icon: <SiTailwindcss color="#06B6D4" />,
-      color: "cyan",
+      color: "bg-cyan-600",
     },
 
     {
       name: "Node.js",
       level: 90,
       icon: <FaNodeJs color="#68A063" />,
-      color: "green",
+      color: "bg-green-600",
     },
 
     {
       name: "MongoDB",
       level: 82,
       icon: <SiMongodb color="#4DB33D" />,
-      color: "green",
+      color: "bg-green-500",
     },
     {
       name: "Express.js",
       level: 87,
       icon: <SiExpress color="#000000" />,
-      color: "gray",
+      color: "bg-gray-600",
     },
     {
       name: "Html",
       level: 93,
       icon: <FaHtml5 color="#F05032" />,
-      color: "orange",
+      color: "bg-orange-600",
     },
 
     {
       name: "Figma",
       level: 85,
-      icon: <SiFigma color="#F24E1E" />,
-      color: "purple",
+      icon: <RiFirebaseFill color="#ffb703" />,
+      color: "bg-yellow-500",
     },
   ];
 
@@ -201,9 +202,10 @@ const Skills = () => {
               {/* Progress Bar */}
               <div className="w-full bg-gray-200 rounded-full h-2 mb-2">
                 <div
-                  className={`h-2 rounded-full bg-gradient-to-r from-${skill.color}-500 to-${skill.color}-600  transition-all duration-1000 ease-out`}
+                  className={`h-2 rounded-full ${skill?.color}  transition-all duration-1000 ease-out`}
                   style={{ width: `${skill.level}%` }}
                 ></div>
+                
               </div>
             </div>
           ))}

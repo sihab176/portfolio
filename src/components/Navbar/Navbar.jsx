@@ -1,150 +1,82 @@
-import React, { useState } from "react";
+import Logo from "../../assets/logo.png";
+import { FaCloudDownloadAlt } from "react-icons/fa";
 
 const Navbar = () => {
-  // bg-[#0F172A]
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
-    <div>
-      <header className="bg-white shadow">
-        <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 items-center justify-between">
-            {/* Logo */}
-            <div className="flex-1 md:flex md:items-center md:gap-12">
-              <h1>Hello</h1>
-            </div>
-
-            {/* Desktop Menu */}
-            <nav aria-label="Global" className="hidden md:block">
-              <ul className="flex items-center gap-6 text-sm">
+    <div className="navbar bg-base-100 shadow-sm">
+      <div className="navbar-start">
+        <div className="dropdown">
+          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              {" "}
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />{" "}
+            </svg>
+          </div>
+          <ul
+            tabIndex={0}
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+          >
+            <li>
+              <a>Item 1</a>
+            </li>
+            <li>
+              <a>Parent</a>
+              <ul className="p-2">
                 <li>
-                  <a
-                    href="#about"
-                    className="text-gray-500 hover:text-gray-700"
-                  >
-                    About
-                  </a>
+                  <a>Submenu 1</a>
                 </li>
                 <li>
-                  <a
-                    href="#careers"
-                    className="text-gray-500 hover:text-gray-700"
-                  >
-                    Careers
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#history"
-                    className="text-gray-500 hover:text-gray-700"
-                  >
-                    History
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#services"
-                    className="text-gray-500 hover:text-gray-700"
-                  >
-                    Services
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#projects"
-                    className="text-gray-500 hover:text-gray-700"
-                  >
-                    Projects
-                  </a>
-                </li>
-                <li>
-                  <a href="#blog" className="text-gray-500 hover:text-gray-700">
-                    Blog
-                  </a>
+                  <a>Submenu 2</a>
                 </li>
               </ul>
-            </nav>
-
-            {/* Mobile Hamburger */}
-            <div className="block md:hidden">
-              <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="rounded-sm bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="size-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
-              </button>
-            </div>
-          </div>
+            </li>
+            <li>
+              <a>Item 3</a>
+            </li>
+          </ul>
         </div>
-
-        {/* Mobile Dropdown Menu */}
-        {isMenuOpen && (
-          <nav className="md:hidden bg-white shadow-lg border-t">
-            <ul className="flex flex-col items-start gap-4 p-4 text-sm">
-              <li>
-                <a
-                  href="#about"
-                  className="block text-gray-700 hover:text-teal-600"
-                >
-                  About
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#careers"
-                  className="block text-gray-700 hover:text-teal-600"
-                >
-                  Careers
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#history"
-                  className="block text-gray-700 hover:text-teal-600"
-                >
-                  History
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#services"
-                  className="block text-gray-700 hover:text-teal-600"
-                >
-                  Services
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#projects"
-                  className="block text-gray-700 hover:text-teal-600"
-                >
-                  Projects
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#blog"
-                  className="block text-gray-700 hover:text-teal-600"
-                >
-                  Blog
-                </a>
-              </li>
-            </ul>
-          </nav>
-        )}
-      </header>
+        <div className="flex items-center ">
+          <img className="w-18" src={Logo} alt="" />
+          <h1 className="text-2xl font-bold pacifico-font">Developer</h1>
+        </div>
+      </div>
+      <div className="navbar-center hidden lg:flex">
+        <ul className="menu menu-horizontal px-1">
+          <li>
+            <a>Item 1</a>
+          </li>
+          <li>
+            <details>
+              <summary>Parent</summary>
+              <ul className="p-2">
+                <li>
+                  <a>Submenu 1</a>
+                </li>
+                <li>
+                  <a>Submenu 2</a>
+                </li>
+              </ul>
+            </details>
+          </li>
+          <li>
+            <a>Item 3</a>
+          </li>
+        </ul>
+      </div>
+      <div className="navbar-end">
+        <button className="btn"><span className="text-blue-600"><FaCloudDownloadAlt size={20} /></span> Download</button>
+      </div>
     </div>
   );
 };

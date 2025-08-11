@@ -1,6 +1,6 @@
 import React from "react";
 import { AiTwotoneMail } from "react-icons/ai";
-import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaFacebook, FaGithub, FaLinkedin, FaPhoneAlt } from "react-icons/fa";
 import { ImWhatsapp } from "react-icons/im";
 import { IoLocation } from "react-icons/io5";
 
@@ -11,7 +11,7 @@ const Contact = () => {
 
   return (
     <div>
-      <section id="contact" className="py-20 bg-gray-50">
+      <section  className="py-20 bg-gray-50">
         <div className="container mx-auto max-w-6xl px-4">
           <div className="text-center space-y-4 mb-16">
             <p className="text-blue-600 font-semibold text-sm tracking-wide uppercase">
@@ -157,6 +157,24 @@ const Contact = () => {
                     </div>
                   </div>
                   {/*whatsApp  */}
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-lg flex-shrink-0">
+                      <i className={` text-sky-500 text-lg`}>
+                        <FaPhoneAlt />{" "}
+                      </i>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-900 mb-1">
+                        Phone
+                      </p>
+                      <a
+                        href="tel:+8801873589869"
+                        className="text-gray-600 hover:text-blue-600 transition-colors duration-300 cursor-pointer"
+                      >
+                        +8801873589869
+                      </a>
+                    </div>
+                  </div>
                   <div className="flex items-start space-x-4">
                     <div className="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-lg flex-shrink-0">
                       <i className={` text-green-600 text-lg`}>
