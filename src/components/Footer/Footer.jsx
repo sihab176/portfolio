@@ -21,22 +21,22 @@ const Footer = () => {
             <h2 className="text-lg font-semibold mb-4">Quick Links</h2>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="#about" className="hover:text-white transition">
+                <a href="about" className="hover:text-white transition">
                   About
                 </a>
               </li>
               <li>
-                <a href="#projects" className="hover:text-white transition">
+                <a href="projects" className="hover:text-white transition">
                   Projects
                 </a>
               </li>
               <li>
-                <a href="#skills" className="hover:text-white transition">
+                <a href="skills" className="hover:text-white transition">
                   Skills
                 </a>
               </li>
               <li>
-                <a href="#contact" className="hover:text-white transition">
+                <a href="contact" className="hover:text-white transition">
                   Contact
                 </a>
               </li>
