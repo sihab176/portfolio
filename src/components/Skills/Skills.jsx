@@ -99,6 +99,10 @@ import {
 } from "react-icons/si";
 import { IoLogoJavascript } from "react-icons/io5";
 import { RiFirebaseFill } from "react-icons/ri";
+import { motion } from "framer-motion";
+import { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
+
 const Skills = () => {
   const skillCategories = [
     {
@@ -161,18 +165,76 @@ const Skills = () => {
     },
   ];
 
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: (index) => ({
+      opacity: 1,
+      y: 0,
+      transition: { delay: index * 0.2, duration: 0.6, ease: "easeOut" },
+    }),
+  };
+
   return (
-    <section id="skills" className="py-20 bg-gray-50">
+    // <section id="skills" className="py-20 ">
+    //   <div className="container mx-auto max-w-6xl px-4">
+    //     <div className="text-center space-y-4 mb-16">
+    //       <p className="text-blue-600 font-semibold text-sm tracking-wide uppercase">
+    //         Skills & Technologies
+    //       </p>
+    //       <h2 className="text-4xl lg:text-5xl font-bold ">
+    //         What I Work With
+    //       </h2>
+    //       <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mx-auto"></div>
+    //       <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+    //         A comprehensive overview of the technologies and tools I use to
+    //         bring ideas to life
+    //       </p>
+    //     </div>
+
+    //     {/* Skills Grid */}
+    //     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    //       {skillCategories.map((skill, index) => (
+    //         <div
+    //           key={index}
+    //           className="bg-[#0b2545] rounded-xl p-6 shadow-lg shadow-sky-900   hover:shadow-xl transition-shadow duration-300"
+    //         >
+    //           <div className="flex items-center justify-between mb-4">
+    //             <div className="flex items-center space-x-3">
+    //               <div className="w-10 h-10 flex items-center justify-center rounded-lg text-3xl">
+    //                 {skill.icon}
+    //               </div>
+    //               <div>
+    //                 <h3 className="font-bold ">{skill.name}</h3>
+    //                 <p className="text-sm text-gray-500">
+    //                   {skill.level}% Proficiency
+    //                 </p>
+    //               </div>
+    //             </div>
+    //           </div>
+
+    //           {/* Progress Bar */}
+    //           <div className="w-full bg-gray-200 rounded-full h-2 mb-2">
+    //             <div
+    //               className={`h-2 rounded-full ${skill?.color}  transition-all duration-1000 ease-out`}
+    //               style={{ width: `${skill.level}%` }}
+    //             ></div>
+
+    //           </div>
+    //         </div>
+    //       ))}
+    //     </div>
+    //   </div>
+    // </section>
+    <section id="skills" className="py-20">
       <div className="container mx-auto max-w-6xl px-4">
+        {/* Heading */}
         <div className="text-center space-y-4 mb-16">
           <p className="text-blue-600 font-semibold text-sm tracking-wide uppercase">
             Skills & Technologies
           </p>
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900">
-            What I Work With
-          </h2>
+          <h2 className="text-4xl lg:text-5xl font-bold">What I Work With</h2>
           <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mx-auto"></div>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
             A comprehensive overview of the technologies and tools I use to
             bring ideas to life
           </p>
@@ -180,35 +242,49 @@ const Skills = () => {
 
         {/* Skills Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skillCategories.map((skill, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300"
-            >
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 flex items-center justify-center rounded-lg text-3xl">
-                    {skill.icon}
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-gray-900">{skill.name}</h3>
-                    <p className="text-sm text-gray-600">
-                      {skill.level}% Proficiency
-                    </p>
+          {skillCategories.map((skill, index) => {
+            const { ref, inView } = useInView({
+              triggerOnce: true,
+              threshold: 0.2,
+            });
+
+            return (
+              <motion.div
+                key={index}
+                ref={ref}
+                variants={cardVariants}
+                initial="hidden"
+                animate={inView ? "visible" : "hidden"}
+                custom={index}
+                className="bg-[#0b2545] rounded-xl p-6 shadow-lg shadow-sky-900 hover:shadow-xl transition-shadow duration-300"
+              >
+                {/* Top */}
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 flex items-center justify-center rounded-lg text-3xl">
+                      {skill.icon}
+                    </div>
+                    <div>
+                      <h3 className="font-bold">{skill.name}</h3>
+                      <p className="text-sm text-gray-500">
+                        {skill.level}% Proficiency
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {/* Progress Bar */}
-              <div className="w-full bg-gray-200 rounded-full h-2 mb-2">
-                <div
-                  className={`h-2 rounded-full ${skill?.color}  transition-all duration-1000 ease-out`}
-                  style={{ width: `${skill.level}%` }}
-                ></div>
-                
-              </div>
-            </div>
-          ))}
+                {/* Progress Bar */}
+                <div className="w-full bg-gray-200 rounded-full h-2 mb-2">
+                  <motion.div
+                    initial={{ width: 0 }}
+                    animate={{ width: inView ? `${skill.level}%` : 0 }}
+                    transition={{ duration: 2.1, ease: "easeOut" }}
+                    className={`h-2 rounded-full ${skill?.color}`}
+                  ></motion.div>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

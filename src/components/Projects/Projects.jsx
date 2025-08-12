@@ -49,27 +49,27 @@ const Projects = () => {
 
   return (
     <div>
-      <section id="portfolio" className="py-20 bg-white">
+      <section id="portfolio" className="py-20 ">
         <div className="container mx-auto max-w-7xl px-4">
           <div className="text-center space-y-4 mb-16">
             <p className="text-blue-600 font-semibold text-sm tracking-wide uppercase">
               Portfolio
             </p>
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900">
+            <h2 className="text-4xl lg:text-5xl font-bold ">
               Featured Projects
             </h2>
             <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mx-auto"></div>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
               A selection of my recent work showcasing different skills and
               technologies
             </p>
           </div>
-          -{/* Projects Grid */}
+          {/* Projects Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
               <div
                 key={project.id}
-                className="group bg-white rounded-xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
+                className="group bg-[#0b2545] rounded-xl overflow-hidden shadow-lg  hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {/* Project Image */}
@@ -104,10 +104,10 @@ const Projects = () => {
 
                 {/* Project Info */}
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-300">
+                  <h3 className="text-xl font-bold  mb-2 group-hover:text-blue-600 transition-colors duration-300">
                     {project.title}
                   </h3>
-                  <p className="text-gray-600 mb-4 leading-relaxed">
+                  <p className="text-gray-500 mb-4 leading-relaxed">
                     {project.description}
                   </p>
 
@@ -128,21 +128,21 @@ const Projects = () => {
                     {/* live url */}
                     <a
                       href={project.liveUrl}
+                      target="_blank"
                       className="flex items-center space-x-2 text-blue-600 font-semibold hover:text-blue-700 transition-colors duration-300 cursor-pointer"
                     >
                       <span>View Live</span>
-                      <div className="w-4 h-4 flex items-center justify-center">
-                        <i className="ri-arrow-right-line"></i>
-                      </div>
                     </a>
                     {/* details */}
                     <Link
                       to={`/projects/${project.id}`}
-                      className="flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors duration-300 cursor-pointer"
+                      className="flex items-center space-x-2 text-gray-400 hover:text-gray-600 transition-colors duration-300 cursor-pointer"
                     >
-                      <div className="w-4 h-4 flex items-center justify-center">
-                        Details
-                      </div>
+                      {" "}
+                      <span>Details</span>
+                      {/* <div className="w-4 h-4 flex items-center justify-center">
+                        
+                      </div> */}
                     </Link>
                   </div>
                 </div>

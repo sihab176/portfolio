@@ -4,7 +4,7 @@ import { FaGithub, FaLinkedin, FaFacebook } from "react-icons/fa";
 const Footer = () => {
   return (
     <div>
-      <footer className="bg-gray-900 text-gray-300 py-10 mt-16">
+      <footer className="bg-[#0b2545] text-gray-300 py-10 mt-16">
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-8">
           {/* About */}
           <div>
@@ -48,21 +48,21 @@ const Footer = () => {
             <h2 className="text-lg font-semibold mb-4">Follow Me</h2>
             <div className="flex space-x-4 text-xl">
               <a
-                href="https://github.com"
+                href="https://github.com/sihab176"
                 target="_blank"
                 className="hover:text-white transition"
               >
                 <FaGithub />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/shahab-bin-shariar-web/"
                 target="_blank"
                 className="hover:text-white transition"
               >
                 <FaLinkedin />
               </a>
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/md.shahariyar.787622"
                 target="_blank"
                 className="hover:text-white transition"
               >

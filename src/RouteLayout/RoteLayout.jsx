@@ -12,10 +12,18 @@ const RoteLayout = () => {
          <div className="max-w-7xl mx-auto lora-font">
         <Navbar />
         <Banner />
-        <About />
-        <Skills />
-        <Projects />
-        <Contact />
+        <div id='about'>
+          <About />
+        </div>
+        <div id='skill'>
+          <Skills />
+        </div>
+        <div id='projects'>
+          <Projects />
+        </div>
+        <div id='contact'>
+          <Contact />
+        </div>
         <Footer />
       </div>
     );

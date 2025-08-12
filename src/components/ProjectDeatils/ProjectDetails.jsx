@@ -58,7 +58,7 @@ const ProjectDetails = () => {
       <Navbar />
 
       <section>
-        <div className="flex justify-between items-center py-20 px-10 bg-[#cae9ff]">
+        <div className="flex justify-between flex-col md:flex-row items-center py-20 px-10 bg-[#0b2545] mt-8">
           <div className="flex-1 space-y-5">
             <h3 className="text-4xl font-bold">{singleProject.title}</h3>
             <p>{singleProject.description}</p>
@@ -73,10 +73,10 @@ const ProjectDetails = () => {
               ))}
             </div>
             <div className="flex items-center gap-8">
-              <a href={singleProject.liveUrl} className="btn">
+              <a target="_blank" href={singleProject.liveUrl}  className="btn">
                 live Demo
               </a>
-              <a href={singleProject.githubUrl} className="btn">
+              <a target="_blank" href={singleProject.githubUrl} className="btn">
                 Github
               </a>
             </div>

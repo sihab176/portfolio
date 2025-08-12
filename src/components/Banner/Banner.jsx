@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Image from "../../assets/image.jpeg";
 import { SiExpress, SiMongodb } from "react-icons/si";
 import { FaNodeJs } from "react-icons/fa";
+import { Typewriter } from "react-simple-typewriter";
 
 const Banner = () => {
   //   const [currentSkill, setCurrentSkill] = useState(0);
@@ -13,11 +14,11 @@ const Banner = () => {
 
   return (
     <div>
-      <section className="relative min-h-screen w-full bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 overflow-hidden">
+      <section className="relative min-h-screen w-full bg-gradient-to-r from-[#000000] via-[#] to-[#003049] overflow-hidden">
         {/* Animated Background Elements */}
         <div className="absolute inset-0">
           {/* {backgroundElements} */}
-          <div className="absolute inset-0 bg-slate-900" />
+          <div className="absolute inset-0 " />
         </div>
 
         {/* Floating Code Snippets */}
@@ -67,10 +68,21 @@ const Banner = () => {
                   </h1>
                   <div className="h-16 flex items-center">
                     <p className="text-2xl lg:text-3xl text-gray-300 font-light">
-                      A passionate{" "}
-                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 font-semibold transition-all duration-500">
-                        {/* {skills[currentSkill]} */}
-                        Developer
+                      <span style={{ color: "#14b8a6" /* teal-500 */ }}>
+                        <Typewriter
+                          words={[
+                            "Frontend Developer",
+                            "React Developer",
+                            "Mern Stack Developer",
+                            "JavaScript Ninja",
+                          ]}
+                          loop={0} // 0 = infinite
+                          cursor
+                          cursorStyle="|"
+                          typeSpeed={70}
+                          deleteSpeed={50}
+                          delaySpeed={1500}
+                        />
                       </span>
                     </p>
                   </div>
@@ -117,14 +129,13 @@ const Banner = () => {
                 }`}
               >
                 <div className="relative">
-                  
                   {/* Profile Image */}
                   <div className="relative z-10  overflow-hidden lg:left-16">
                     <img
                       src={Image}
                       alt="Professional Headshot"
-                      className="w-full max-w-[680px] h-auto md:h-[620px] object-cover object-top 
-             rounded-full md:rounded-full lg:rounded-none mx-auto"
+                      className="w-full max-w-[680px] h-[420px] md:h-[620px] object-cover object-top 
+                                 rounded-full md:rounded-full lg:rounded-none mx-auto"
                     />
                   </div>
 
@@ -134,14 +145,18 @@ const Banner = () => {
                     className="absolute top-32 -left-8 w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center backdrop-blur-sm animate-float "
                     style={{ animationDelay: "0.5s" }}
                   >
-                    <i className="ri-nodejs-fill text-green-400 text-xl"><SiMongodb color="#4DB33D" /></i>
+                    <i className="ri-nodejs-fill text-green-400 text-xl">
+                      <SiMongodb color="#4DB33D" />
+                    </i>
                   </div>
                   {/* Node js */}
                   <div
                     className="absolute bottom-10 -left-28 w-12 h-12 bg-purple-400/20 rounded-full flex items-center justify-center backdrop-blur-sm animate-float"
                     style={{ animationDelay: "1.5s" }}
                   >
-                    <i className="ri-css3-fill  text-xl"><FaNodeJs color="#68A063" /></i>
+                    <i className="ri-css3-fill  text-xl">
+                      <FaNodeJs color="#68A063" />
+                    </i>
                   </div>
                 </div>
               </div>
